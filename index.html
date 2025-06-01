@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<script>
+  const titles = [
+    "🤫隐藏内容 扫码解锁👇","🔥秘密入口，等你开启！","😉专属福利，扫码查看",
+    "👀你来对了地方…","😏图集中暗藏玄机！","🚀点击加载神秘资源",
+    "🎁你的惊喜即将揭晓","🙈别让别人看到这个","📦内部资料限时查看",
+    "🔞内容可能令人惊喜！","🎬不看后悔系列","📸图集中有你想要的",
+    "🕵️正在解锁隐藏页面","🌶️精彩内容待揭晓","🎯精准推送福利页",
+    "🧲被吸引不是偶然","📥正在导入图集资源","🔍请仔细查看图像细节",
+    "🫣不敢相信自己的眼睛","💣劲爆资源加载中","👑会员专属视图",
+    "🍿准备好，惊喜登场","😳悄悄地看，别被发现","📤内容仅限内部预览",
+    "😬你确定要继续吗？","🌈浏览器都不好意思了","📡信号接通，开始接收",
+    "👨‍💻正在读取隐藏文件","💌我都没脸往下看","🐾你已进入不归路…"
+  ];
+  document.title = titles[Math.floor(Math.random() * titles.length)];
+</script>
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+    background: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    flex-direction: column;
+  }
+  img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 12px;
+    border: 2px solid #ccc;
+    display: none;
+  }
+  #loading {
+    font-size: 16px;
+    color: #666;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<img id="qrcode" src="" alt="二维码加载中…" />
+<div id="loading">正在解锁图片，请稍等…</div>
+<script>
+  const imagesCount = 66;
+  const baseURL = "https://cdn.jsdelivr.net/gh/PeterZhoua/random-qrcodes@main/images/";
+  const randIndex = Math.floor(Math.random() * imagesCount) + 1;
+  const fileName = String(randIndex).padStart(2, '0') + ".webp";
+  const img = document.getElementById("qrcode");
+
+  img.onload = () => {
+    img.style.display = "block";
+    document.getElementById("loading").style.display = "none";
+  };
+
+  img.src = baseURL + fileName;
+</script>
+</body>
+</html>
